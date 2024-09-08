@@ -1,0 +1,1345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+    <title>Navigation Bar</title>
+    <style>
+        body1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f8f8f8;
+    
+        }
+        .logo {
+            width: 230px;
+            height: 65px;
+            margin-right: 20px;
+        }
+        .nav-items {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-grow: 1;
+        justify-content: center;
+        }
+        .nav-item {
+            
+            margin-right: 40px;
+        }
+        .nav-item a {
+            color: rgb(37, 56, 99);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        .nav-item:hover > a {
+            background-color: #ebe6e6;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #d8d2d2;
+            min-width: 350px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .nav-item:hover .submenu {
+            display: block;
+        }
+        .submenu a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .submenu a:hover {
+            background-color: #555;
+        }
+        /* cover*/
+         body2, html {
+            height: 100%;
+            margin: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+           overflow-x: hidden;
+        }
+        .carousel-item {
+            height: 80vh;
+            background-size: cover;
+            background-position: center;
+        }
+        /* segments we cover*/
+       
+        body3 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 15px;
+            background-color:#f8f9fa;
+          overflow-x: hidden;
+
+        }
+        .segments-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px; /* Adjusting for Bootstrap’s default margin */
+        }
+
+        .segment-card {
+            position: relative;
+            background-color: #fff; /* Default background color */
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            justify-content: space-around;
+           
+            align-items: center;
+            text-align: center;
+          
+            height: 150%;
+            padding: 20px; /* Padding to ensure proper space */
+        }
+
+        .segment-card img {
+            transition: filter 0.3s;
+        }
+
+        .segment-card:hover {
+            background-color:  #47a5f1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .segment-card:hover img {
+            filter: brightness(0) invert(1);
+        }
+   
+
+        /* Client */
+        body4 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .oc {
+            width: 1300px;
+            height: 250px;
+            background-color: #42b3e1;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: -1%;
+        }
+        .oc-title {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight:900;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .slides {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+        .slides-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slides-item {
+            min-width: 150px;
+            height: 150px;
+            margin-right: 10px;
+        }
+        .slides-item img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+        /* About us*/
+        /* .card-img-left {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+        }
+        .pera-top {
+            font-size: 18px;
+            line-height: 1.6;
+        } */
+        .card-img-left {
+            width: 500px;
+            height: 500px;
+          margin-top: 60px;
+            object-fit: cover;
+        }
+        
+        .pera-top {
+            font-size: 20px;
+            line-height:3;
+            text-align:justify;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        
+        }
+        .card-body1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            text-align:center;
+         margin-right: 5%;
+        }
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 900;
+                }
+        /* Integration */
+        body6 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 40px;
+}
+.integrated-background {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section-title {
+  font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.integrated-submenus {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  overflow-x: hidden;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.submenu-item {
+  width: 140px; /* Ensure all cards are the same size */
+  height: 100px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.submenu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.submenu-item img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.5s;
+}
+
+.delay-4 {
+  animation-delay: 0.6s;
+}
+
+.delay-5 {
+  animation-delay: 0.7s;
+}
+
+.delay-6 {
+  animation-delay: 0.8s;
+}
+
+.delay-7 {
+  animation-delay: 0.9s;
+}
+
+.delay-8 {
+  animation-delay: 1s;
+}
+
+.delay-9 {
+  animation-delay: 1.1s;
+}
+
+.delay-10 {
+  animation-delay: 1.2s;
+}
+
+.delay-11 {
+  animation-delay: 1.3s;
+}
+
+.delay-12 {
+  animation-delay: 1.4s;
+}
+
+
+
+        /*value added*/
+        .square1 {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(31, 200, 212);
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    
+        @media (max-width: 1200px) {
+            .con {
+                flex-direction: column !important;
+            }
+        } 
+        /* body {
+  background: linear-gradient(to bottom right, #f5f8f8, #d0f5ec);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+} */
+
+    /* .con {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .square1 {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    } */
+
+/* .blue-bg {
+ background-color:#42b3e1 ;
+ height: 450px;
+ margin-top: 5%;
+          
+color:white;
+        }
+.con {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.square1 {
+  width: 19%;
+  aspect-ratio: 1 / 1;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.square1 p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+} */
+        
+       
+               
+
+     
+</style>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="pictures/logo.jpg" alt="Logo" class="logo" style="width: 190px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#client">Client</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#valueadded">Value Added</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#product" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Product
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#rms">RMS</a></li>
+                        <li><a class="dropdown-item" href="#pms">PMS</a></li>
+                        <li><a class="dropdown-item" href="#revenue">Revenue</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" >
+            <img src="pictures/logo.jpg" alt="Logo" class="logo" style="width: 190px; height: 50px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#client">Client</a>
+               
+                   
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#product" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#rms">RMS</a></li>
+                    <li><a class="dropdown-item" href="#pms">PMS</a></li>
+                    <li><a class="dropdown-item" href="#revenue">Revenue</a></li>
+                  </ul>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+
+
+       
+<!--COVER-->
+
+    <div id="home"></div>
+    <!-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"> -->
+        <!-- <div class="carousel-indicators"> -->
+          <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div> -->
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="pictures/background_1.png" class="d-block w-100 " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+             
+            </div>
+          </div>
+          <!-- <div class="carousel-item" data-bs-interval="2000">
+            <img src="pictures/background_44.png" class="d-block w-150 " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="" class="d-block w-100 " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+               -->
+            <!-- </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+ 
+
+<!--Segments we cover -->
+
+    <style>
+    
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.5s; }
+        .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.7s; }
+    </style>
+    
+        <!-- Segments Section -->
+        <div class="segments-background" style="margin-top: 50%;">
+            <div class="">
+                <h2 class="section-title text-center my-4 animate-fade-in-up" style="font-weight: 700; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Segments We Cover</h2>
+                <div class="row segments-container" style="margin-left: 10%; ">
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-1">
+                        <img src="pictures/hotel-removebg-preview.png" alt="Segment 1" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-2">
+                        <img src="pictures/clubman-removebg-preview.png" alt="Segment 2" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-3">
+                        <img src="pictures/r_b-removebg-preview.png" alt="Segment 3" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-4">
+                        <img src="pictures/qsr_1-removebg-preview.png" alt="Segment 4" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-5">
+                        <img src="pictures/banq-removebg-preview.png" alt="Segment 5" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row segments-container" style="margin-left: 10%;">
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-1">
+                        <img src="pictures/w_b-removebg-preview.png" alt="Segment 6" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-2">
+                        <img src="pictures/res-removebg-preview.png" alt="Segment 7" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-3">
+                        <img src="pictures/wp-removebg-preview.png" alt="Segment 8" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-4">
+                        <img src="pictures/lodg-removebg-preview.png" alt="Segment 9" class="img-fluid">
+                    </div>
+                    <div class="col-md-2 col-sm-4 segment-card animate-fade-in-up delay-5">
+                        <img src="pictures/cate-removebg-preview.png" alt="Segment 10" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+              
+            <!-- <div class="row segments-container justify-content-center">
+                <h2 class="section-title text-center my-4">Segments We Cover</h2>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s1.jpg" alt="Segment 1" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s2.jpg" alt="Segment 2" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s3.jpg" alt="Segment 3" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s4.jpg" alt="Segment 4" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s5.jpg" alt="Segment 5" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s6.jpg" alt="Segment 6" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s7.jpg" alt="Segment 7" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s8.jpg" alt="Segment 8" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s9.jpg" alt="Segment 9" class="img-fluid"></div>
+                <div class="col-md-1 col-sm-2 segment"><img src="pictures/s10.jpg" alt="Segment 10" class="img-fluid"></div>
+            </div>
+      -->
+   
+    
+   
+
+<!--About Us-->
+
+
+    <!-- <div class="container mt-5"> -->
+       <div id="about"></div>
+            <div class="row g-0" style="margin-top:-5% ;">
+                <div class="col-md-5">
+                    <div class="cover-container h-150">
+                        <img src="pictures/about1.png" class="card-img-left animate__animated animate__fadeIn" alt="About Us">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body1">
+                        <div class="support-caption animate__animated animate__slideInRight">
+                            <h3 class="card-title mb-4" style="font-weight: 700; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">About Us</h3>
+                            <p class="pera-top" >
+                                We, Team RN Software, have been working in the Hospitality (Hotel Industry) domain for the last 11+ years, gaining extensive domain expertise.<br>
+                                We provide 25+ modules to cater to various segments in Hospitality like Hotels, Restaurants, Bars, Resorts, Lodging, Caterers, Banquet, Club Management, Payroll & Revenue Management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+
+   
+        <style>
+            .integrated-background {
+                background-color: white; /* Add your preferred background color here */
+                padding: 50px 0;
+            }
+    
+            .section-title {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: xx-large;
+                font-weight: 600;
+                margin-top: 3%;
+            }
+    
+            .integrated-submenus {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+    
+            .submenu-item {
+                flex: 0 0 100px;
+                height: 100px;
+                box-sizing: border-box;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+    
+            .submenu-item a {
+                display: block;
+                text-decoration: none;
+                color: black;
+                border: 1px solid #ddd;
+                padding: 10px;
+                border-radius: 8px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+    
+            .submenu-item img {
+                max-width: 100%;
+                max-height: 100%;
+                margin-bottom: 5px;
+            }
+    
+            .submenu-item a:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                background-color: white;
+                color: white;
+            }
+    
+            .animate-fade-in-up {
+                animation: fadeInUp 0.5s ease-out;
+            }
+    
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translate3d(0, 100%, 0);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+    
+            .delay-1 { animation-delay: 0.3s; }
+            .delay-2 { animation-delay: 0.4s; }
+            .delay-3 { animation-delay: 0.5s; }
+            .delay-4 { animation-delay: 0.6s; }
+            .delay-5 { animation-delay: 0.7s; }
+            .delay-6 { animation-delay: 0.8s; }
+            .delay-7 { animation-delay: 0.9s; }
+            .delay-8 { animation-delay: 1.0s; }
+            .delay-9 { animation-delay: 1.1s; }
+            .delay-10 { animation-delay: 1.2s; }
+            .delay-11 { animation-delay: 1.3s; }
+            .delay-12 { animation-delay: 1.4s; }
+        </style>
+ 
+        <!-- Integration -->
+        <div class="integrated-background">
+            <h1 class="section-title text-center my-4 animate-fade-in-up">Integrated With</h1>
+            <div class="integrated-submenus">
+                <div class="submenu-item animate-fade-in-up delay-1">
+                    <a href="#"><img src="pictures/pinelab.jpg" alt="Pinelab" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-2">
+                    <a href="#"><img src="pictures/ein.jpg" alt="E-invoice" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-3">
+                    <a href="#"><img src="pictures/eb.jpg" alt="Easebuzz" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-4">
+                    <a href="#"><img src="pictures/zomato.png" alt="Zomato" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-5">
+                    <a href="#"><img src="pictures/swiggy.png" alt="Swiggy" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-6">
+                    <a href="#"><img src="pictures/tallyy.png" alt="Tally" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-7">
+                    <a href="#"><img src="pictures/aws.png" alt="AWS" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-8">
+                    <a href="#"><img src="pictures/essl.png" alt="ESSL" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-9">
+                    <a href="#"><img src="pictures/godrej.png" alt="Godrej" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-10">
+                    <a href="#"><img src="pictures/bc.png" alt="Booking.com" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-11">
+                    <a href="#"><img src="pictures/gom.png" alt="GoMMT" class="img-fluid"></a>
+                </div>
+                <div class="submenu-item animate-fade-in-up delay-12">
+                    <a href="#"><img src="pictures/whats.jpg" alt="WhatsApp" class="img-fluid"></a>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+
+<!-- <div class="integrated-background">
+ 
+<h1  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-top: -20%; font-weight: 600; text-align: center; font-size:xx-large; margin-top:3%;">Integrated With </h1>
+<div class="integrated-submenus">
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/pinelab.jpg" alt="Pinelab"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/ein.jpg" alt="E-invoice"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/eb.jpg" alt="Easebuzz"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/zomato.png" alt="Zomato"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/swiggy.png" alt="Swiggy"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/tallyy.png" alt="Tally"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/aws.png" alt="AWS"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/essl.png" alt="ESSL"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/godrej.png" alt="Godrej"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/bc.png" alt="Booking.com"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/gom.png" alt="GoMMT"></a>
+    </div>
+    <div class="submenu-item">
+        <a href="#"><img src="pictures/whats.jpg" alt="WhatsApp"></a>
+    </div>
+</div>
+</div> -->
+
+<!--Services-->
+
+
+
+    <style>
+         
+        /* .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 10px;
+        }
+        .circle-restaurant {
+            background-image: url('pictures/rms.png');
+        }
+        .circle-property {
+            background-image: url('pictures/pms.png');
+        }
+        .circle-hotel {
+            background-image: url('pictures/hrm.png');
+        } */
+    /* @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .squ {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .squ:hover {
+        transform: scale(1.05);
+    } --> */
+</style>
+
+    <!-- Bootstrap CSS -->
+ 
+    
+      
+<!-- value added -->
+
+<style>
+    .square1 {
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, border 0.3s;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: 3px solid transparent;
+}
+
+.square1 img {
+    transition: transform 0.3s, filter 0.3s;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 90px;
+    height: 90px;
+}
+
+.square1 p {
+    margin: 0;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.square1:hover {
+    background-color: #5dc5ee;
+    color: white;
+    transform: scale(1.05);
+}
+
+.square1:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* New styles for alternating borders */
+/* .square1:nth-child(odd):hover {
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+}
+
+.square1:nth-child(even):hover {
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+} */
+    </style>
+
+    <div id="valueadded"></div>
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-12 text-center mt-4 mb-4">
+                <h2 class="display-4 fw-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: xx-large; margin-top: 5%;">Value Added Services</h2>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center" style="margin-top: -35%;">
+                <div class="con d-flex flex-row flex-wrap justify-content-center">
+                    <div class="square1 m-2">
+                        <img src="pictures/crm-removebg-preview.png" alt="CRM with Loyalty Programs">
+                        <p>CRM with Loyalty Programs</p>
+                    </div>
+                    <div class="square1 m-2">
+                        <img src="pictures/va1-removebg-preview.png" alt="Payroll With Biometric">
+                        <p>Payroll With Biometric</p>
+                    </div>
+                    <div class="square1 m-2">
+                        <img src="pictures/va2-removebg-preview.png" alt="Tally Integration">
+                        <p>Tally Integration</p>
+                    </div>
+                    <div class="square1 m-2">
+                        <img src="pictures/va3-removebg-preview.png" alt="Maintenance Module">
+                        <p>Maintenance Module</p>
+                    </div>
+                    <div class="square1 m-2">
+                        <img src="pictures/va4-removebg-preview.png" alt="SMS & Whatsapp Marketing">
+                        <p>SMS & Whatsapp Marketing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!--Revenue Management-->
+   
+   
+        <style>
+            .services-background {
+                background-color:white; /* Add your preferred background color here */
+                padding: 50px 0;
+                text-align: center;
+            }
+    
+            .circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                margin: 0 auto 10px;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+    
+            .circle-restaurant {
+                background-image: url('pictures/rmss.png');
+                
+            }
+    
+            .circle-property {
+                background-image: url('pictures/pmms.png');
+            }
+    
+            .circle-hotel {
+                background-image: url('pictures/hrrm.png');
+            }
+    
+            .circle:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+    
+            .section-title {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: 600;
+                margin-top: -20%;
+                font-size: xx-large;
+            }
+    
+            .btn-primary {
+                margin: 0 10px;
+               
+            }
+            @keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 r;
+    }
+    
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(135, 206, 235, 0);
+    }
+    
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(135, 206, 235, 0);
+    }
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto 10px;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    border: 3px solid transparent;
+    animation: pulse 2s infinite;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid skyblue;
+    animation: none; /* Stop the pulse animation on hover */
+}
+        </style>
+
+        <!-- Our Services Section -->
+        <div class="services-background">
+            <div class="container">
+                <h1 class="section-title mb-4">Our Services</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="circle circle-restaurant"></div>
+                        <h2>Restaurant Management System</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="circle circle-property"></div>
+                        <h2>Property Management System</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="circle circle-hotel"></div>
+                        <h2>Hotel Revenue Management</h2>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around mt-3" style="margin-bottom: 25%; margin-top: -20%;">
+                    <a href="rpms.html">
+                        <button class="btn btn-primary">Click Here</button>
+                    </a>
+                    <a href="pms.html">
+                        <button class="btn btn-primary">Click Here</button>
+                    </a>
+                    <a href="hrm.html">
+                        <button class="btn btn-primary">Click Here</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    
+    
+    <!-- Bootstrap JS and dependencies -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+
+
+
+
+
+    
+   <!-- Client -->
+   <style>
+    body, html {
+         margin: 0;
+         padding: 0;
+         overflow-x: hidden; /* Prevent horizontal scroll */
+     }
+     #client {
+         width: 100%;
+     }
+     .oc {
+         width: 100%;
+         overflow: hidden;
+         background: white;
+         padding: 10px 0;
+     }
+     .oc-title {
+         text-align: center;
+         margin-bottom: 10px;
+         color: black;
+       
+     }
+     .slides {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         overflow: hidden;
+         height: 150px;
+     }
+     .slides-inner {
+         display: flex;
+         width: 100%;
+         transition: transform 0.5s ease;
+     }
+     .slides-item {
+         flex: 0 0 auto;
+         margin-right: 10px; /* Space between items */
+     }
+     .slides-item img {
+         width: 100%;
+         display: block;
+     }
+</style>
+<div id="client"></div>
+<div>
+    <div class="oc" style="margin-top: -15%;">
+        <div class="oc-title" style="font-size: x-large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Our Clients
+            <p>Trusted by Independent Hotels, Restaurants and Management Companies Around the City</p>
+        </div>
+        <div class="slides">
+            <div class="slides-inner" >
+                <div class="slides-item"><img src="pictures/brand1.png" alt="Client 1"></div>
+                <div class="slides-item"><img src="pictures/brand2.png" alt="Client 2"></div>
+                <div class="slides-item"><img src="pictures/brand3.png" alt="Client 3"></div>
+                <div class="slides-item"><img src="pictures/brand4.png" alt="Client 4"></div>
+                <div class="slides-item"><img src="pictures/brand5.png" alt="Client 5"></div>
+                <div class="slides-item"><img src="pictures/brand6.png" alt="Client 6"></div>
+                <div class="slides-item"><img src="pictures/brand7.png" alt="Client 7"></div>
+                <div class="slides-item"><img src="pictures/brand8.png" alt="Client 8"></div>
+                <div class="slides-item"><img src="pictures/brand9.png" alt="Client 9"></div>
+                <div class="slides-item"><img src="pictures/brand10.png" alt="Client 10"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carousel = document.querySelector('.slides-inner');
+    const items = document.querySelectorAll('.slides-item');
+    const itemWidth = items[0].offsetWidth + 10; // Width + margin-right
+    let currentPosition = 0;
+
+    function moveCarousel() {
+        currentPosition -= 1; // Move 1px at a time for smooth animation
+        if (currentPosition <= -itemWidth) {
+            // Move the first item to the end
+            carousel.appendChild(carousel.firstElementChild);
+            currentPosition += itemWidth;
+        }
+        carousel.style.transform = `translateX(${currentPosition}px)`;
+        requestAnimationFrame(moveCarousel);
+    }
+
+    // Start the carousel
+    moveCarousel();
+</script>
+
+  
+    <!-- Footer -->
+    <footer
+  
+            class="text-center text-lg-start text-white "
+            style="background-color: #5dc5ee"
+            >
+            <hr>
+      <!-- Grid container -->
+      <div class="">
+        <div id="contact"></div>
+        <!-- Section: Links -->
+        <section class=" " style="background-color: #5dc5ee">
+          <!--Grid row-->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 font-weight-bold">
+                Company Info
+              </h5>
+              <p>
+                Team RN Software, have been working in the Hospitality (Hotel Industry) domain for the last 11+ years.
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 font-weight-bold">Products</h5>
+              <p>
+                <a class="text-white" href="#rms">Restaurant Management System</a>
+              </p>
+              <p>
+                <a class="text-white" href="#pms">Property Management System</a>
+              </p>
+              
+            </div>
+            <!-- Grid column -->
+  
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="margin-left: 20%; margin-right: 20%;">
+              <h5 class="text-uppercase mb-4 font-weight-bold" style="margin-left: 20%; margin-right: 30%;">Contact</h5>
+              <p><i class="fas fa-home mr-3" ></i>11th Lane Rajarampuri Above IDBI Bank, Kolhapur</p>
+              <p><i class="fas fa-envelope mr-3"></i> sales@rnsoftwares.co.in</p>
+              <p><i class="fas fa-phone mr-3" ></i> + 0231 2529811</p>
+              <p><i class="fas fa-print mr-3" ></i> + 91 7276388003</p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 font-weight-bold">Follow us</h5>
+  
+              <!-- Facebook -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #3b5998"
+                 href="https://www.facebook.com/RNSoftwaresAndConsultors/" target="_blank"
+                 role="button"
+                 ><i class="fab fa-facebook-f"></i
+                ></a>
+  
+              <!-- Google -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #dd4b39"
+                 href="https://rnsoftwares.co.in/" target="_blank"
+                 role="button"
+                 ><i class="fab fa-google"></i
+                ></a>
+
+  
+              <!-- Linkedin -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #0082ca"
+                 href="https://www.linkedin.com/company/rn-softwares-consultors/" target="_blank"
+                 role="button"
+                 ><i class="fab fa-linkedin-in"></i
+                ></a>
+              
+              
+            </div>
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div
+           class="text-center p-3"
+           style="background-color: #5dc5ee"
+           >
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+           >RN Softwares</a
+          >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+  <!-- End of .container -->
+   
+</body>
+</html>
+
+ 

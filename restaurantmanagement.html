@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+      /*service*/
+     
+            
+      .squares-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+        }
+        .squares-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.squ {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+.squ{
+    /* ... other properties ... */
+    border: 1px solid #ebf1f3; /* Blue border added here */
+    /* ... other properties ... */
+}
+
+.squ:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.squ img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    align-items: center;
+}
+
+.squ .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.squ:hover .card-content {
+    transform: translateY(0);
+}
+
+.square h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.square p {
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: #666;
+}
+        /*key feature*/
+        body{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f8f9fa;
+            color: #212529;
+         
+           
+        }
+        .key-features {
+          padding: 50px 0;
+          background-color: #f8f9fa;
+        }
+        .feature-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+        }
+        .feature-item {
+          flex-basis: calc(20% - 30px);
+          text-align: center;
+          padding: 20px;
+          border-radius: 10px;
+          transition: all 0.3s ease;
+          background-color: white;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .feature-item:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .feature-icon {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 15px;
+          transition: transform 0.3s ease;
+        }
+        .feature-item:hover .feature-icon {
+          transform: scale(1.1);
+        }
+        .feature-title {
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 10px;
+        }
+        @media (max-width: 1200px) {
+          .feature-item {
+            flex-basis: calc(25% - 30px);
+          }
+        }
+        @media (max-width: 992px) {
+          .feature-item {
+            flex-basis: calc(33.333% - 30px);
+          }
+        }
+        @media (max-width: 768px) {
+          .feature-item {
+            flex-basis: calc(50% - 30px);
+          }
+        }
+        @media (max-width: 576px) {
+          .feature-item {
+            flex-basis: 100%;
+          }
+        }
+         
+       
+    
+
+    
+@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .squ {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .squ:hover {
+        transform: scale(1.05);
+    }
+</style>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="pictures/logo.jpg" alt="Logo" class="logo" style="width: 190px; height: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#client">Client</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#product" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Product
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#rms">RMS</a></li>
+                        <li><a class="dropdown-item" href="#pms">PMS</a></li>
+                        <li><a class="dropdown-item" href="#revenue">Revenue</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+<!--COVER-->
+
+<div id="home"></div>
+<!-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div> -->
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="pictures/rms1.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+         
+        </div>
+      </div>
+      <!-- <div class="carousel-item" data-bs-interval="2000">
+        <img src="pictures/background_2.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="pictures/background_3.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div> -->
+      <!-- </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+
+<style>
+  #restaurant-title {
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(50px); /* Start slightly below the final position */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for opacity and position */
+}
+
+#restaurant-title.visible {
+    opacity: 1; /* Become visible */
+    transform: translateY(0); /* Move to the original position */
+}
+
+#restaurant-title h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600; /* Make the title bold */
+    font-size: 4rem;
+    color: darkblue; /* Set the title color to dark blue */
+    text-align: center; /* Center-align the title */
+}
+
+</style>
+
+
+    <div id="product"></div>
+    <!-- <div class="container"> -->
+      <div id="restaurant-title" class="title-container fade-in-up" style="margin-top: 35%;">
+        <h2 class="text-center">Restaurant Management System</h2>
+    </div>
+    
+        <div id="rms"></div>
+        <div class="squares-container" style="margin-top:2%;">
+            <div class="squ fade-in-up">
+                <img src="pictures/r1.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r22.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r3.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r4.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r5.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r6.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r7.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r8.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r9.jpg" alt="">
+            </div>
+            <div class="squ fade-in-up">
+                <img src="pictures/r10.jpg" alt="">
+            </div>
+        </div>
+    <script>
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        function animateOnScroll() {
+            var elements = document.querySelectorAll('.fade-in-up');
+            elements.forEach(function(element) {
+                if (isElementInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+    
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('resize', animateOnScroll);
+    </script>
+    <script>
+      document.addEventListener('scroll', function() {
+          var titleContainer = document.getElementById('restaurant-title');
+          var rect = titleContainer.getBoundingClientRect();
+          var isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight);
+  
+          if (isVisible) {
+              titleContainer.classList.add('visible');
+          } else {
+              titleContainer.classList.remove('visible');
+          }
+      });
+  </script>
+  
+</body5>
+    <!--key features-->
+   
+    <body10>
+        <div class="key-features">
+            <h2 class="text-center mb-5" style="font-weight: 600;">Key Features</h2>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <img src="pictures/kf11.jpg" alt="Xpress Owner Apps" class="feature-icon">
+                <h5 class="feature-title">Xpress Owner Apps</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf22.jpg" alt="QR Code Based Digital Menu" class="feature-icon">
+                <h5 class="feature-title">QR Code Based Digital Menu</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf33.jpg" alt="Paperless E-billing & Whatsapp Bills" class="feature-icon">
+                <h5 class="feature-title">Paperless E-billing & Whatsapp Bills</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf4.jpg" alt="Guest feedback App" class="feature-icon">
+                <h5 class="feature-title">Guest feedback App</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf5.jpg" alt="Dynamic QR Code on Bill Print" class="feature-icon">
+                <h5 class="feature-title">Dynamic QR Code on Bill Print</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf6.jpg" alt="Xpress KOT" class="feature-icon">
+                <h5 class="feature-title">Xpress KOT</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf7.jpg" alt="Kitchen Display system" class="feature-icon">
+                <h5 class="feature-title">Kitchen Display system</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf8.jpg" alt="Customer Ordering Apps/ Portal" class="feature-icon">
+                <h5 class="feature-title">Customer Ordering Apps/ Portal</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf9.jpg" alt="Payment Gateway Integration" class="feature-icon">
+                <h5 class="feature-title">Payment Gateway Integration</h5>
+              </div>
+              <div class="feature-item">
+                <img src="pictures/kf10.jpg" alt="Table Reservation" class="feature-icon">
+                <h5 class="feature-title">Table Reservation</h5>
+              </div>
+            </div>
+          </div>
+         
+           <!-- Footer -->
+    <footer
+  
+    class="text-center text-lg-start text-white "
+    style="background-color: skyblue"
+    >
+    <hr>
+<!-- Grid container -->
+<div class="">
+<div id="contact"></div>
+<!-- Section: Links -->
+<section class=" " style="background-color: skyblue">
+  <!--Grid row-->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold">
+        Company Info
+      </h5>
+      <p>
+        Team RN Software, have been working in the Hospitality (Hotel Industry) domain for the last 11+ years.
+      </p>
+    </div>
+    <!-- Grid column -->
+
+    <hr class="w-100 clearfix d-md-none" />
+
+    <!-- Grid column -->
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold">Products</h5>
+      <p>
+        <a class="text-white" href="#rms">Restaurant Management System</a>
+      </p>
+      <p>
+        <a class="text-white" href="#pms">Property Management System</a>
+      </p>
+      
+    </div>
+    <!-- Grid column -->
+
+    <hr class="w-100 clearfix d-md-none" />
+
+    <!-- Grid column -->
+    <hr class="w-100 clearfix d-md-none" />
+
+    <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="margin-left: 20%; margin-right: 20%;">
+      <h5 class="text-uppercase mb-4 font-weight-bold" style="margin-left: 20%; margin-right: 30%;">Contact</h5>
+      <p><i class="fas fa-home mr-3" ></i>11th Lane Rajarampuri Above IDBI Bank, Kolhapur</p>
+      <p><i class="fas fa-envelope mr-3"></i> sales@rnsoftwares.co.in</p>
+      <p><i class="fas fa-phone mr-3" ></i> + 0231 2529811</p>
+      <p><i class="fas fa-print mr-3" ></i> + 91 7276388003</p>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold">Follow us</h5>
+
+      <!-- Facebook -->
+      <a
+         class="btn btn-primary btn-floating m-1"
+         style="background-color: #3b5998"
+         href="https://www.facebook.com/RNSoftwaresAndConsultors/" target="_blank"
+         role="button"
+         ><i class="fab fa-facebook-f"></i
+        ></a>
+
+      <!-- Google -->
+      <a
+         class="btn btn-primary btn-floating m-1"
+         style="background-color: #dd4b39"
+         href="https://rnsoftwares.co.in/" target="_blank"
+         role="button"
+         ><i class="fab fa-google"></i
+        ></a>
+
+
+      <!-- Linkedin -->
+      <a
+         class="btn btn-primary btn-floating m-1"
+         style="background-color: #0082ca"
+         href="https://www.linkedin.com/company/rn-softwares-consultors/" target="_blank"
+         role="button"
+         ><i class="fab fa-linkedin-in"></i
+        ></a>
+      
+      
+    </div>
+  </div>
+  <!--Grid row-->
+</section>
+<!-- Section: Links -->
+</div>
+<!-- Grid container -->
+
+<!-- Copyright -->
+<div
+   class="text-center p-3"
+   style="background-color: skyblue"
+   >
+© 2024 Copyright:
+<a class="text-white" href="https://mdbootstrap.com/"
+   >RN Softwares</a
+  >
+</div>
+<!-- Copyright -->
+</footer>
+<!-- Footer -->
+</div>
+<!-- End of .container -->
+
+                
+</body>
+</html>
